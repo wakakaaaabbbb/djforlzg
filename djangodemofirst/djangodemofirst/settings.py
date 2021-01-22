@@ -25,19 +25,27 @@ SECRET_KEY = 'k%z+_zq(2sbo4wbjqi@bj3*77mbqm)u4_*!80b1&8@8fpzxl9g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
 
+GRAPHENE = {
+    'SCHEMA': 'graphql_api.schema.schema',
+}
+
 INSTALLED_APPS = [
+    'jobs.apps.JobsConfig',
+    'posts.apps.PostsConfig',
     'demofirst.apps.DemofirstConfig',
+    'book.apps.BookConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django',
 ]
 
 MIDDLEWARE = [
